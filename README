@@ -10,11 +10,14 @@ so it will probably work at any computer.
 You can install this module as usual: 
 
     perl Makefile.PL
+
+-OR-
+    
+    perl Makefile.PL PREFIX=/home/alex
+    
+-AND THEN-
+    
     make
     make test
     make install
 
-For some strange reason the installation into local directories with 
-"perl Makefile.PL PREFIX=/path/to/some/dir" does not work. If you know 
-the reason - please drop me a mail at alex@kawo2.rwth-aachen.de (Till 
-it's fixed, you can still copy the Charset.pm manually into Lingua/RU/ ).

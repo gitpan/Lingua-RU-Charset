@@ -8,7 +8,7 @@ use strict;
 use vars qw ($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
 require Exporter;
 
-$VERSION     = '0.01';
+$VERSION     = 0.02;
 @ISA         = qw (Exporter);
 
 @EXPORT_OK   = qw (ENG KOI WIN ALT ISO MAC RUS UNI UTF charset
@@ -68,7 +68,11 @@ sub charset { 0 }                      # TODO
 
 sub koi2win
 {
-    map { tr/\xA3\xB3\xC0-\xFF/\xB8\xA8\xFE\xE0\xE1\xF6\xE4\xE5\xF4\xE3\xF5\xE8-\xEF\xFF\xF0-\xF3\xE6\xE2\xFC\xFB\xE7\xF8\xFD\xF9\xF7\xFA\xDE\xC0\xC1\xD6\xC4\xC5\xD4\xC3\xD5\xC8-\xCF\xDF\xD0-\xD3\xC6\xC2\xDC\xDB\xC7\xD8\xDD\xD9\xD7\xDA/ } @_;
+    my @str = @_;                      # copy the arguments
+
+    map { tr/\xA3\xB3\xC0-\xFF/\xB8\xA8\xFE\xE0\xE1\xF6\xE4\xE5\xF4\xE3\xF5\xE8-\xEF\xFF\xF0-\xF3\xE6\xE2\xFC\xFB\xE7\xF8\xFD\xF9\xF7\xFA\xDE\xC0\xC1\xD6\xC4\xC5\xD4\xC3\xD5\xC8-\xCF\xDF\xD0-\xD3\xC6\xC2\xDC\xDB\xC7\xD8\xDD\xD9\xD7\xDA/ } @str;
+
+    return @str;
 }
 
 ################################################################################
@@ -77,7 +81,11 @@ sub koi2win
 
 sub win2koi
 {
-    map { tr/\xB8\xA8\xFE\xE0\xE1\xF6\xE4\xE5\xF4\xE3\xF5\xE8-\xEF\xFF\xF0-\xF3\xE6\xE2\xFC\xFB\xE7\xF8\xFD\xF9\xF7\xFA\xDE\xC0\xC1\xD6\xC4\xC5\xD4\xC3\xD5\xC8-\xCF\xDF\xD0-\xD3\xC6\xC2\xDC\xDB\xC7\xD8\xDD\xD9\xD7\xDA/\xA3\xB3\xC0-\xFF/ } @_;
+    my @str = @_;                      # copy the arguments
+
+    map { tr/\xB8\xA8\xFE\xE0\xE1\xF6\xE4\xE5\xF4\xE3\xF5\xE8-\xEF\xFF\xF0-\xF3\xE6\xE2\xFC\xFB\xE7\xF8\xFD\xF9\xF7\xFA\xDE\xC0\xC1\xD6\xC4\xC5\xD4\xC3\xD5\xC8-\xCF\xDF\xD0-\xD3\xC6\xC2\xDC\xDB\xC7\xD8\xDD\xD9\xD7\xDA/\xA3\xB3\xC0-\xFF/ } @str;
+
+    return @str;
 }
 
 ################################################################################
@@ -86,7 +94,11 @@ sub win2koi
 
 sub koi2alt
 {
-    map { tr/\xA3\xB3\xC0-\xFF/\xF1\xF0\xEE\xA0\xA1\xE6\xA4\xA5\xE4\xA3\xE5\xA8-\xAF\xEF\xE0-\xE3\xA6\xA2\xEC\xEB\xA7\xE8\xED\xE9\xE7\xEA\x9E\x80\x81\x96\x84\x85\x94\x83\x95\x88-\x8F\x9F\x90-\x93\x86\x82\x9C\x9B\x87\x98\x9D\x99\x97\x9A/ } @_;
+    my @str = @_;                      # copy the arguments
+
+    map { tr/\xA3\xB3\xC0-\xFF/\xF1\xF0\xEE\xA0\xA1\xE6\xA4\xA5\xE4\xA3\xE5\xA8-\xAF\xEF\xE0-\xE3\xA6\xA2\xEC\xEB\xA7\xE8\xED\xE9\xE7\xEA\x9E\x80\x81\x96\x84\x85\x94\x83\x95\x88-\x8F\x9F\x90-\x93\x86\x82\x9C\x9B\x87\x98\x9D\x99\x97\x9A/ } @str;
+
+    return @str;
 }
 
 ################################################################################
@@ -95,7 +107,11 @@ sub koi2alt
 
 sub alt2koi
 {
-    map { tr/\xF1\xF0\xEE\xA0\xA1\xE6\xA4\xA5\xE4\xA3\xE5\xA8-\xAF\xEF\xE0-\xE3\xA6\xA2\xEC\xEB\xA7\xE8\xED\xE9\xE7\xEA\x9E\x80\x81\x96\x84\x85\x94\x83\x95\x88-\x8F\x9F\x90-\x93\x86\x82\x9C\x9B\x87\x98\x9D\x99\x97\x9A/\xA3\xB3\xC0-\xFF/ } @_;
+    my @str = @_;                      # copy the arguments
+
+    map { tr/\xF1\xF0\xEE\xA0\xA1\xE6\xA4\xA5\xE4\xA3\xE5\xA8-\xAF\xEF\xE0-\xE3\xA6\xA2\xEC\xEB\xA7\xE8\xED\xE9\xE7\xEA\x9E\x80\x81\x96\x84\x85\x94\x83\x95\x88-\x8F\x9F\x90-\x93\x86\x82\x9C\x9B\x87\x98\x9D\x99\x97\x9A/\xA3\xB3\xC0-\xFF/ } @str;
+
+    return @str;
 }
 
 ################################################################################
@@ -104,7 +120,11 @@ sub alt2koi
 
 sub koi2iso
 {
-    map { tr/\xA3\xB3\xC0-\xFF/\xF1\xA1\xEE\xD0\xD1\xE6\xD4\xD5\xE4\xD3\xE5\xD8-\xDF\xEF\xE0-\xE3\xD6\xD2\xEC\xEB\xD7\xE8\xED\xE9\xE7\xEA\xCE\xB0\xB1\xC6\xB4\xB5\xC4\xB3\xC5\xB8-\xBF\xCF\xC0-\xC3\xB6\xB2\xCC\xCB\xB7\xC8\xCD\xC9\xC7\xCA/ } @_;
+    my @str = @_;                      # copy the arguments
+
+    map { tr/\xA3\xB3\xC0-\xFF/\xF1\xA1\xEE\xD0\xD1\xE6\xD4\xD5\xE4\xD3\xE5\xD8-\xDF\xEF\xE0-\xE3\xD6\xD2\xEC\xEB\xD7\xE8\xED\xE9\xE7\xEA\xCE\xB0\xB1\xC6\xB4\xB5\xC4\xB3\xC5\xB8-\xBF\xCF\xC0-\xC3\xB6\xB2\xCC\xCB\xB7\xC8\xCD\xC9\xC7\xCA/ } @str;
+
+    return @str;
 }
 
 ################################################################################
@@ -113,7 +133,11 @@ sub koi2iso
 
 sub iso2koi
 {
-    map { tr/\xF1\xA1\xEE\xD0\xD1\xE6\xD4\xD5\xE4\xD3\xE5\xD8-\xDF\xEF\xE0-\xE3\xD6\xD2\xEC\xEB\xD7\xE8\xED\xE9\xE7\xEA\xCE\xB0\xB1\xC6\xB4\xB5\xC4\xB3\xC5\xB8-\xBF\xCF\xC0-\xC3\xB6\xB2\xCC\xCB\xB7\xC8\xCD\xC9\xC7\xCA/\xA3\xB3\xC0-\xFF/ } @_;
+    my @str = @_;                      # copy the arguments
+
+    map { tr/\xF1\xA1\xEE\xD0\xD1\xE6\xD4\xD5\xE4\xD3\xE5\xD8-\xDF\xEF\xE0-\xE3\xD6\xD2\xEC\xEB\xD7\xE8\xED\xE9\xE7\xEA\xCE\xB0\xB1\xC6\xB4\xB5\xC4\xB3\xC5\xB8-\xBF\xCF\xC0-\xC3\xB6\xB2\xCC\xCB\xB7\xC8\xCD\xC9\xC7\xCA/\xA3\xB3\xC0-\xFF/ } @str;
+
+    return @str;
 }
 
 ################################################################################
@@ -122,7 +146,11 @@ sub iso2koi
 
 sub koi2mac
 {
-    map { tr/\xA3\xB3\xC0-\xFF/\xDE\xDD\xFE\xE0\xE1\xF6\xE4\xE5\xF4\xE3\xF5\xE8-\xEF\xDF\xF0-\xF3\xE6\xE2\xFC\xFB\xE7\xF8\xFD\xF9\xF7\xFA\x9E\x80\x81\x96\x84\x85\x94\x83\x95\x88-\x8F\x9F\x90-\x93\x86\x82\x9C\x9B\x87\x98\x9D\x99\x97\x9A/ } @_;
+    my @str = @_;                      # copy the arguments
+
+    map { tr/\xA3\xB3\xC0-\xFF/\xDE\xDD\xFE\xE0\xE1\xF6\xE4\xE5\xF4\xE3\xF5\xE8-\xEF\xDF\xF0-\xF3\xE6\xE2\xFC\xFB\xE7\xF8\xFD\xF9\xF7\xFA\x9E\x80\x81\x96\x84\x85\x94\x83\x95\x88-\x8F\x9F\x90-\x93\x86\x82\x9C\x9B\x87\x98\x9D\x99\x97\x9A/ } @str;
+
+    return @str;
 }
 
 ################################################################################
@@ -131,7 +159,11 @@ sub koi2mac
 
 sub mac2koi
 {
-    map { tr/\xDE\xDD\xFE\xE0\xE1\xF6\xE4\xE5\xF4\xE3\xF5\xE8-\xEF\xDF\xF0-\xF3\xE6\xE2\xFC\xFB\xE7\xF8\xFD\xF9\xF7\xFA\x9E\x80\x81\x96\x84\x85\x94\x83\x95\x88-\x8F\x9F\x90-\x93\x86\x82\x9C\x9B\x87\x98\x9D\x99\x97\x9A/\xA3\xB3\xC0-\xFF/ } @_;
+    my @str = @_;                      # copy the arguments
+
+    map { tr/\xDE\xDD\xFE\xE0\xE1\xF6\xE4\xE5\xF4\xE3\xF5\xE8-\xEF\xDF\xF0-\xF3\xE6\xE2\xFC\xFB\xE7\xF8\xFD\xF9\xF7\xFA\x9E\x80\x81\x96\x84\x85\x94\x83\x95\x88-\x8F\x9F\x90-\x93\x86\x82\x9C\x9B\x87\x98\x9D\x99\x97\x9A/\xA3\xB3\xC0-\xFF/ } @str;
+
+    return @str;
 }
 
 ################################################################################
@@ -140,21 +172,24 @@ sub mac2koi
 
 sub koi2rus
 {
-    map { tr/\xA3\xB3\xC1-\xD0\xD2-\xD5\xD7-\xDA\xDC\xDF\xE1-\xF0\xF2-\xF5\xF7-\xFA\xFC\xFF/eEabcdefgxijklmnoprstuv`ize'ABCDEFGXIJKLMNOPRSTUV`IZE'/ } @_;
-    map { s/\xC0/ju/g  } @_;
-    map { s/\xD1/ja/g  } @_;
-    map { s/\xD6/zh/g  } @_;
-    map { s/\xDB/sh/g  } @_;
-    map { s/\xDD/sch/g } @_;
-    map { s/\xDE/ch/g  } @_;
-    map { s/\xE0/Ju/g  } @_;
-    map { s/\xF1/Ja/g  } @_;
-    map { s/\xF6/Zh/g  } @_;
-    map { s/\xFB/Sh/g  } @_;
-    map { s/\xFD/Sch/g } @_;
-    map { s/\xFE/Ch/g  } @_;
+    my @str = @_;                      # copy the arguments
 
-    @_;
+    map { tr/\xA3\xB3\xC1-\xD0\xD2-\xD5\xD7-\xDA\xDC\xDF\xE1-\xF0\xF2-\xF5\xF7-\xFA\xFC\xFF/eEabcdefgxijklmnoprstuv`ize'ABCDEFGXIJKLMNOPRSTUV`IZE'/ } @str;
+
+    map { s/\xC0/ju/g  } @str;
+    map { s/\xD1/ja/g  } @str;
+    map { s/\xD6/zh/g  } @str;
+    map { s/\xDB/sh/g  } @str;
+    map { s/\xDD/sch/g } @str;
+    map { s/\xDE/ch/g  } @str;
+    map { s/\xE0/Ju/g  } @str;
+    map { s/\xF1/Ja/g  } @str;
+    map { s/\xF6/Zh/g  } @str;
+    map { s/\xFB/Sh/g  } @str;
+    map { s/\xFD/Sch/g } @str;
+    map { s/\xFE/Ch/g  } @str;
+
+    return @str;
 }
 
 ################################################################################
@@ -172,7 +207,11 @@ sub rus2koi
 
 sub koi2lc
 {
-    map { tr/\xB3\xE0-\xFF/\xA3\xC0-\xDF/ } @_;
+    my @str = @_;                      # copy the arguments
+
+    map { tr/\xB3\xE0-\xFF/\xA3\xC0-\xDF/ } @str;
+
+    return @str;
 }
 
 ################################################################################
@@ -181,7 +220,11 @@ sub koi2lc
 
 sub koi2uc
 {
-    map { tr/\xA3\xC0-\xDF/\xB3\xE0-\xFF/ } @_;
+    my @str = @_;                      # copy the arguments
+
+    map { tr/\xA3\xC0-\xDF/\xB3\xE0-\xFF/ } @str;
+
+    return @str;
 }
 
 ################################################################################
@@ -190,7 +233,11 @@ sub koi2uc
 
 sub win2lc
 {
-    map { tr/\xA8\xC0-\xDF/\xB8\xE0-\xFF/ } @_;
+    my @str = @_;                      # copy the arguments
+
+    map { tr/\xA8\xC0-\xDF/\xB8\xE0-\xFF/ } @str;
+
+    return @str;
 }
 
 ################################################################################
@@ -199,7 +246,11 @@ sub win2lc
 
 sub win2uc
 {
-    map { tr/\xB8\xE0-\xFF/\xA8\xC0-\xDF/ } @_;
+    my @str = @_;                      # copy the arguments
+
+    map { tr/\xB8\xE0-\xFF/\xA8\xC0-\xDF/ } @str;
+
+    return @str;
 }
 
 ################################################################################
@@ -208,7 +259,11 @@ sub win2uc
 
 sub alt2lc
 {
-    map { tr/\xF0\x80-\x9F/\xF1\xA0-\xAF\xE0-\xEF/ } @_;
+    my @str = @_;                      # copy the arguments
+
+    map { tr/\xF0\x80-\x9F/\xF1\xA0-\xAF\xE0-\xEF/ } @str;
+
+    return @str;
 }
 
 ################################################################################
@@ -217,7 +272,11 @@ sub alt2lc
 
 sub alt2uc
 {
-    map { tr/\xF1\xA0-\xAF\xE0-\xEF/\xF0\x80-\x9F/ } @_;
+    my @str = @_;                      # copy the arguments
+
+    map { tr/\xF1\xA0-\xAF\xE0-\xEF/\xF0\x80-\x9F/ } @str;
+
+    return @str;
 }
 
 ################################################################################
@@ -226,7 +285,11 @@ sub alt2uc
 
 sub iso2lc
 {
-    map { tr/\xA1\xB0-\xCF/\xF1\xD0-\xEF/ } @_;
+    my @str = @_;                      # copy the arguments
+
+    map { tr/\xA1\xB0-\xCF/\xF1\xD0-\xEF/ } @str;
+
+    return @str;
 }
 
 ################################################################################
@@ -235,7 +298,11 @@ sub iso2lc
 
 sub iso2uc
 {
-    map { tr/\xF1\xD0-\xEF/\xA1\xB0-\xCF/ } @_;
+    my @str = @_;                      # copy the arguments
+
+    map { tr/\xF1\xD0-\xEF/\xA1\xB0-\xCF/ } @str;
+
+    return @str;
 }
 
 ################################################################################
@@ -244,7 +311,11 @@ sub iso2uc
 
 sub mac2lc
 {
-    map { tr/\xDD\x80-\xDF/\xDE\xE0-\xFE\xDF/ } @_;
+    my @str = @_;                      # copy the arguments
+
+    map { tr/\xDD\x80-\xDF/\xDE\xE0-\xFE\xDF/ } @str;
+
+    return @str;
 }
 
 ################################################################################
@@ -253,7 +324,11 @@ sub mac2lc
 
 sub mac2uc
 {
-    map { tr/\xDE\xE0-\xFE\xDF/\xDD\x80-\xDF/ } @_;
+    my @str = @_;                      # copy the arguments
+
+    map { tr/\xDE\xE0-\xFE\xDF/\xDD\x80-\xDF/ } @str;
+
+    return @str;
 }
 
 ################################################################################
@@ -262,7 +337,11 @@ sub mac2uc
 
 sub rus2lc
 {
-    map { tr/A-Z/a-z/ } @_;                                # TODO
+    my @str = @_;                      # copy the arguments
+
+    map { tr/A-Z/a-z/ } @str;
+
+    return @str;                                # TODO
 }
 
 ################################################################################
@@ -271,7 +350,11 @@ sub rus2lc
 
 sub rus2uc
 {
-    map { tr/a-z/A-Z/ } @_;                                # TODO
+    my @str = @_;                      # copy the arguments
+
+    map { tr/a-z/A-Z/ } @str;
+
+    return @str;                                # TODO
 }
 
 ################################################################################
@@ -280,7 +363,12 @@ sub rus2uc
 
 sub uni2lc                                                 # modify last byte
 {
-    map { substr ($_, pos - 1, 1) =~ tr/\x01\x10-\x2F/\x51\x30-\x4F/ while /\G(?:..)*?\x04./g } @_;
+    my $byte;
+    my @str = @_;                      # copy the arguments
+
+    map { s#\G(.)(.)# $byte = $2; $byte =~ tr/\x01\x10-\x2F/\x51\x30-\x4F/; $1 != 0x4F ? "$1$2" : "$1$byte" #esg } @str;
+
+    return @str;
 }
 
 ################################################################################
@@ -289,7 +377,12 @@ sub uni2lc                                                 # modify last byte
 
 sub uni2uc
 {
-    map { substr ($_, pos - 1, 1) =~ tr/\x51\x30-\x4F/\x01\x10-\x2F/ while /\G(?:..)*?\x04./g } @_;
+    my $byte;
+    my @str = @_;                      # copy the arguments
+
+    map { s#\G(.)(.)# $byte = $2; $byte =~ tr/\x51\x30-\x4F/\x01\x10-\x2F/; $1 != 0x4F ? "$1$2" : "$1$byte" #esg } @str;
+
+    return @str;
 }
 
 ################################################################################
@@ -345,7 +438,7 @@ Alex Farber, <alex@kawo2.rwth-aachen.de>
 http://czyborra.com/charsets/cyrillic.html lists various cyrillic charsets.
 The russian texts for counting frequencies of letter pairs have been taken from 
 "The Eugene Peskin's Electronic Library" located at http://www.online.ru/sp/rel/russian/
-Please consider also visiting my home page at http://simplex.ru/news.html where 
+Please consider also visiting my home page at http://simplex.ru/news/ where 
 I collect links to articles and news about Perl, Python, JavaScript, databases etc.
 
 =cut
